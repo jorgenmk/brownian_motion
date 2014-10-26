@@ -1,14 +1,14 @@
-import sys, math, time
+import sys, math, time, datetime
 import numpy as np
 from matplotlib import pyplot as plt
 from pylab import *
 
 st = 100.0
-runs = 10
+runs = 1000
 my = 0.45
-iterations = 10000
+iterations = 1000
 variance = 0.3
-delta_t = 0.0001
+delta_t = 0.001
 counter = 0
 barrier = 15
 
@@ -23,7 +23,7 @@ def plot_data(data, name):
     savefig("test-{}.png".format(name))
     clf()
     #show()
-
+start = datetime.datetime.now()
 for times in range(runs):
     
     # Start from st every run
@@ -41,10 +41,12 @@ for times in range(runs):
         if st_next < barrier:
             broke = True
             break
-    plot_data(data, times)     
+    #plot_data(data, times)     
     if broke:
         counter += 1
-
+end = datetime.datetime.now() - start
 print "Broke", counter,"/",runs, "time(s)"
+print "Time:", end
+print "Simulations/sec:", runs/end.total_seconds()
 
 

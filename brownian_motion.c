@@ -4,7 +4,7 @@
 #include "randr.h"
 #include <time.h>
 
-#define RUNS       10000
+#define RUNS       100000
 #define ST         100
 #define MY         0.45
 #define ITERATIONS 1000
