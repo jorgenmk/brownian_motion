@@ -8,7 +8,7 @@ import Queue
 import datetime
 
 st = 100.0
-runs = 1000000
+runs = 10000
 my = 0.45
 iterations = 1000
 variance = 0.3
