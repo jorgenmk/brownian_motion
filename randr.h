@@ -28,5 +28,5 @@
  */
 
 
-void     randr_init(double mean, double stdev);
-double * randr_array(double * array, int length);
+void randr_init(double mean, double stdev);
+void randr_array(double * array, int length);

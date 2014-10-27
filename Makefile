@@ -2,9 +2,9 @@ MODULES = randr.c brownian_motion.c
 
 PROG = br_m
 
-CDEFS = -std=c99 -Os 
+CFLAGS = -std=c99 -O3 -Wall
 
 LIBS = -lm
 
 all:
-	gcc $(MODULES) $(CDEFS) $(LIBS) -o $(PROG)
+	gcc $(MODULES) $(CFLAGS) $(LIBS) -o $(PROG)

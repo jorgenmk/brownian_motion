@@ -4,13 +4,13 @@ from matplotlib import pyplot as plt
 from pylab import *
 
 st = 100.0
-runs = 1000
-my = 0.45
+runs = 10
+my = 0.045
 iterations = 1000
-variance = 0.3
-delta_t = 0.001
+variance = 0.9
+delta_t = 0.0001
 counter = 0
-barrier = 15
+barrier = 65
 
 def plot_data(data, name):
     x = range(len(data))
@@ -35,18 +35,19 @@ for times in range(runs):
     broke = False
     data = []
     for dt_c in range(iterations):
-        st_next = (st_next)*(math.e)**((my-(0.5*variance)**2)*(delta_t)+(e[dt_c]*math.sqrt(delta_t)))
+        st_next = (st_next)*(math.e)**((my-0.5*(variance**2))*(delta_t)+(variance*e[dt_c]*math.sqrt(delta_t)))
         data.append(st_next)
                 
         if st_next < barrier:
             broke = True
             break
-    #plot_data(data, times)     
+    plot_data(data, times)     
     if broke:
         counter += 1
 end = datetime.datetime.now() - start
 print "Broke", counter,"/",runs, "time(s)"
 print "Time:", end
+print "Rate:", counter*100.0/runs
 print "Simulations/sec:", runs/end.total_seconds()
 
 

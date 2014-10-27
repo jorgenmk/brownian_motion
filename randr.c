@@ -70,7 +70,7 @@ static double rand_normal(double mean, double stddev)
         return n2*stddev + mean;
     }
 }
-double * randr_array(double * array, int length)
+void randr_array(double * array, int length)
 {
     for (int i = 0; i < length; i++)
     {
