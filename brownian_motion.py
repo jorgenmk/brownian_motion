@@ -4,11 +4,11 @@ from matplotlib import pyplot as plt
 from pylab import *
 
 st = 100.0
-runs = 10
+runs = 1000
 my = 0.045
-iterations = 1000
-variance = 0.9
-delta_t = 0.0001
+iterations = 10000
+variance = 0.3
+delta_t = 1.0/iterations
 counter = 0
 barrier = 65
 
@@ -23,6 +23,7 @@ def plot_data(data, name):
     savefig("test-{}.png".format(name))
     clf()
     #show()
+
 start = datetime.datetime.now()
 for times in range(runs):
     
@@ -41,7 +42,7 @@ for times in range(runs):
         if st_next < barrier:
             broke = True
             break
-    plot_data(data, times)     
+    #plot_data(data, times)     
     if broke:
         counter += 1
 end = datetime.datetime.now() - start
